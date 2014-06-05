@@ -1,0 +1,21 @@
+<%= form_for @pet do |f| %>
+<p>
+  <%= f.label :pet_name %>
+  <%= f.text_field :pet_name %>
+</p>
+  <p>
+    <%= f.label :owner %>
+    <%= f.text_field :owner %>
+  </p>
+  <p>
+    <%= f.submit 'Add pet' %>
+  </p>
+<% end %>
+
+<% @pets.each do |pet| %>
+<ul>
+  <li>
+    <%= pet.pet_name %>, <%= pet.owner %>
+  </li>
+</ul>
+<% end %>

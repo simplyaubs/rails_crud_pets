@@ -31,4 +31,19 @@ feature 'CRUD favorite pets' do
     expect(page).to_not have_content 'Fido'
     expect(page).to_not have_content 'Fred'
   end
+
+  scenario 'User can delete a pet from list' do
+    visit '/'
+    expect(page).to have_content 'Welcome'
+    click_on 'Add a pet'
+    fill_in 'Pet name', with: 'Fido'
+    fill_in 'Owner', with: 'Fred'
+    click_on 'Add pet'
+    expect(page).to have_content 'Fido'
+    expect(page).to have_content 'Fred'
+    click_on 'Fido'
+    click_on 'Delete pet'
+    expect(page).to_not have_content 'Fido'
+    expect(page).to_not have_content 'Fred'
+  end
 end
